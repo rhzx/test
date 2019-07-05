@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+    <title>掌上营业厅</title>
+    <script type="text/javascript" charset="utf-8">
+        (function (para) {
+            var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script', x = null, y = null;
+            w['sensorsDataAnalytic201505'] = n;
+            w[n] = w[n] || function (a) { return function () { (w[n]._q = w[n]._q || []).push([a, arguments]); } };
+            var ifs = ['track', 'quick', 'register', 'registerPage', 'registerOnce', 'trackSignup', 'trackAbtest', 'setProfile', 'setOnceProfile', 'appendProfile', 'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify', 'login', 'logout', 'trackLink', 'clearAllRegister', 'getAppStatus'];
+            for (var i = 0; i < ifs.length; i++) {
+                w[n][ifs[i]] = w[n].call(null, ifs[i]);
+            }
+            //setTimeout(function(){
+            if (!w[n]._t) {
+                x = d.createElement(s), y = d.getElementsByTagName('head')[0];
+                x.async = 1;
+                x.src = p;
+                x.setAttribute('charset', 'UTF-8');
+                y.appendChild(x);
+                w[n].para = para;
+            }
+            //},10000)
+        })({
+            sdk_url: 'sensorsdata.full.js',
+            use_app_track: true,//默认改成true了，可去掉
+            name: 'sa',//可改名
+            server_url: '39.98.54.111/dcskftxv6akqoaoyyccgcdnxe_1n6k/dcs.gif?', //要求不带http或https协议，dcs.gif后可以带部分参数,例如dcs.gif?project=a1&id=2
+            show_log: true, //默认是false
+            is_track_device_id: true, //默认改成true了，可去掉
+            use_client_time: true, //默认改成true了，可去掉
+            heatmap: {
+                //是否开启点击图，默认 default 表示开启，自动采集 $WebClick 事件，可以设置 'not_collect' 表示关闭, 可去掉
+                clickmap: 'default',
+                //是否开启触达注意力图，设置 default 表示开启，自动采集 $WebStay 事件，默认 'not_collect' 表示关闭, 可去掉
+                scroll_notice_map: 'not_collect'
+            }
+        });
+        sa.quick('autoTrack', {
+            platForm: 'h5',
+            'si_n': '登录'
+        });
+    </script>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <h1 class="title"><span>请选择去程航班</span></h1>
+            <table>
+                <TR>
+                    <td colspan=3><b>按钮点击区域</b></td>
+                </TR>
+                <input type=hidden name="" otitle="" />
+                <input type=submit name="" otitle="" />
+
+                <TR>
+                    <td>文本输入框:</td>
+                    <td><input otitle='姓名' type='text' id='txtName' otype="button" /></td>
+                    <td></td>
+                </TR>
+                <TR>
+                    <td>文件选择框:</td>
+                    <td><input otitle='文件选择框' type='file' name='file1' otype="button" /></td>
+                    <td></td>
+                </TR>
+                <TR>
+                    <td>大文本输入框:</td>
+                    <td><TEXTAREA name='TEXTAREA1' otitle='大文本输入框' otype="button"></TEXTAREA></td>
+                    <td></td>
+                </TR>
+                <TR>
+                    <td>BUTTON:</td>
+                    <td><BUTTON name='BUTTON1' otitle="Button1" otype="button">click me</BUTTON></td>
+                    <td></td>
+                </TR>
+                <TR>
+                    <td>下拉选择框:</td>
+                    <td><SELECT OTITLE='下拉选择框' name='select1' OTYPE="button" onclick="sa.quick('trackHeatMap',this);">
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                        </SELECT></td>
+                    <td></td>
+                </TR>
+                <TR>
+                    <td>CheckBox:</td>
+                    <td><input type='checkbox' name='check1' otitle='abcdafadfadf' otype="button"></input></td>
+                    <td></td>
+                </TR>
+                <TR>
+                    <td>文字链1:</td>
+                    <td><a otype='adtext' otitle="1" href='app2.htm' areadesc="信用卡商城-上" target='_blank'>诺基亚C5-033G智能手机-诺基亚C5-033G智能手机</a></td>
+                    <td></td>
+                </TR>
+                <TR>
+                    <td>Entry:</td>
+                    <td><a otype='entry' otitle="入口1" href='#' onclick="void(0);return false;" target='_blank'>入口</a></td>
+                    <td></td>
+                </TR>
+                <TR>
+                    <td>Submit:</td>
+                    <td><a otype='submit' otitle="页面提交1" ourl="http://www.wacn.com" href='#' onclick="void(0);return false;"
+                            target='_blank'>页面提交</a></td>
+                    <td></td>
+                </TR>
+            </table><br />
+
+            <table>
+                <TR>
+                    <td colspan=3><b>回调函数区域</b></td>
+                </TR>
+                <TR>
+                    <td>回调函数:</td>
+                    <td><a href='#' onclick="fun1()">测试回调函数1</a></td>
+                    <td></td>
+                </TR>
+                <TR>
+                    <td>回调函数:</td>
+                    <td><a href='#' onclick="fun2()">登录保存id</a></td>
+                    <td></td>
+                </TR>
+            </table>
+
+        </div>
+        <br />
+        <a href="js2sa.html?from=app.html&a=1#hashapp?b=2&c=3">注册流程</a>
+    </form>
+
+    <script>
+
+
+        function fun1() {
+            sa.track('ViewProduct', {
+                ProductId: '123456',
+                ProductCatalog: "Laptop Computer",
+                ProductName: "MacBook Pro",
+                ProductPrice: 123.45
+            });
+        }
+        function fun2() {
+            sa.login('user1312312123');
+        }
+    </script>
+</body>
+
+</html>
